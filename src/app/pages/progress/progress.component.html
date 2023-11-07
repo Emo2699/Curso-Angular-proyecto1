@@ -2,14 +2,25 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
+            <!-- BARRA DE PROGRESO -->
           <h4 class="card-tittle">Striped Progress bar</h4>
           <div class="progress m-t-20">
-            <div class="progress-bar bg-info progress-bar-striped active" 
-                style="width: 85%; height:10px;" 
+            <div class="progress-bar bg-primary progress-bar-striped active" 
+                style="height:10px;"
+                [style.width] = "getProgreso1()" 
                 role="progressbar">
                 <span class="sr-only">85% Complete (success)</span>
             </div>
-        </div>
+          </div>
+
+          <div class="progress m-t-20">
+            <div class="progress-bar bg-success progress-bar-striped active" 
+                style="height:10px;"
+                [style.width] = "getProgreso2()" 
+                role="progressbar">
+                <span class="sr-only">85% Complete (success)</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -20,19 +31,7 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Product name">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                    </span>
-                </div>
+                <app-incrementador (resultado)="progreso1 = $event"  [progreso]="progreso1"></app-incrementador>
             </div>
         </div>
     </div>
@@ -40,7 +39,7 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                2
+                <app-incrementador (resultado)="progreso2 = $event"  [progreso]="progreso2" [btnClass]="'btn-success'"></app-incrementador>
             </div>
         </div>
     </div>
